@@ -1,43 +1,6 @@
 <script src="/player/swfobject.js" type="text/javascript"></script>
 <script src="/player/ParsedQueryString.js" type="text/javascript"></script>
 <script type="text/javascript">// <![CDATA[
-var player = null;
-
-function loadStream(url) {
-  player.setMediaResourceURL(url);
-}
-
-function getlink(url) {
-  return "GrindPlayer.html?src=" + encodeURIComponent(url);
-}
-
-function listStreams(list, container) {
-  for(var i=0; i<list.length; i++) { var entry = document.createElement("li");
-    //entry.innerHTML = "<a href=" + getlink(list[i].file) + ">" +list[i].title+"</a>";
-    entry.innerHTML = "<a href='#' onclick='return loadStream(\""+list[i].file+"\")'>"+list[i].title+"</a>";    
-    document.getElementById(container).appendChild(entry);
-  }
-  //loadStream(list[0].file);
-}
-
-
-        function jsbridge(playerId, event, data) {
-          if (player == null) {
-            player = document.getElementById(playerId);
-          }
-          switch(event) {
-            case "onJavaScriptBridgeCreated":
-              listStreams(teststreams,"streamlist");
-              break;
-             case "timeChange":
-             case "timeupdate":
-             case "progress":
-               break;
-             default:
-              console.log(event, data);
-            }
-        }
-
             // Collect query parameters in an object that we can
             // forward to SWFObject:
             
