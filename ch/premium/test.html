@@ -36,6 +36,16 @@
 		-moz-border-radius: 15px;
 		border-radius: 15px;
 		}
+		@media only screen and (max-width:1150px){
+			#GrindPlayer{
+				display:none;
+				}
+		}
+		@media only screen and (min-width:1150px){
+			#ClapprPlayer{
+				display:none;
+			}
+		}
 	</style>
       <!-- Peer5 library -->
 <script src="//api.peer5.com/peer5.js?id=rl7fkzxfbzx302j8nr61"></script>
@@ -97,14 +107,7 @@
             <p>More the users, Better the service. To learn more about the project, Please go to <a href="http://fiber.media/">http://fiber.media</a> thanks:)</p>
          <div id="player">
     	  <div id="ClapprPlayer">
-        <script>
-            var player = new Clappr.Player({
-                source: 'http://abclive.abcnews.com/i/abc_live4@136330/master.m3u8?b=500,300,700,900,1200',
-                width: "50%",
-                parentId: '#ClapprPlayer'
-            });
-        </script>
-        
+          <div id="GrindPlayer">
     </div>
   
     <div class="col-md-1"></div>
@@ -204,7 +207,84 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 <img style="width:50px;height:50px;" src="http://simplsystems.com/lisasarmy/wp-content/uploads/2014/05/donate-icon.png">
 
    </div>
-
+<script src="/player/swfobject.js" type="text/javascript"></script>
+<script src="/player/ParsedQueryString.js" type="text/javascript"></script>
+   <script>
+            var player = new Clappr.Player({
+                source: 'http://abclive.abcnews.com/i/abc_live4@136330/master.m3u8?b=500,300,700,900,1200',
+                width: "50%",
+                parentId: '#ClapprPlayer'
+            });
+        </script>
+		
+   <script>
+          
+            
+            var pqs = new ParsedQueryString();
+            var parameterNames = pqs.params(false);
+            var parameters = {
+                src: "http://216.31.255.235/hlsl/8/INVDSC/INVDSC.m3u8",
+                autoPlay: "false",
+                verbose: true,
+                controlBarAutoHide: "true",
+                controlBarPosition: "bottom",
+                poster: "images/poster.png",
+                javascriptCallbackFunction: "jsbridge",
+                plugin_hls: "/player/flashlsOSMF.swf",
+                hls_minbufferlength: -1,
+                hls_maxbufferlength: 30,
+                hls_lowbufferlength: 3,
+                hls_seekmode: "SEGMENT",
+                hls_startfromlevel: -1,
+                hls_seekfromlevel: -1,
+                hls_live_flushurlcache: false,
+                hls_info: true,
+                hls_debug: false,
+                hls_debug2: false,
+                hls_warn: true,
+                hls_error: true,
+                hls_fragmentloadmaxretry : -1,
+                hls_manifestloadmaxretry : -1,
+                hls_capleveltostage : false,
+                hls_maxlevelcappingmode : "downscale"
+            };
+            
+            for (var i = 0; i < parameterNames.length; i++) {
+                var parameterName = parameterNames[i];
+                parameters[parameterName] = pqs.param(parameterName) ||
+                parameters[parameterName];
+            }
+            
+            var wmodeValue = "direct";
+            var wmodeOptions = ["direct", "opaque", "transparent", "window"];
+            if (parameters.hasOwnProperty("wmode"))
+            {
+                if (wmodeOptions.indexOf(parameters.wmode) >= 0)
+                {
+                    wmodeValue = parameters.wmode;
+                }                   
+                delete parameters.wmode;
+            }
+            
+            // Embed the player SWF:                
+            swfobject.embedSWF(
+                "/player/GrindPlayer.swf"
+                , "GrindPlayer"
+                , "50%"
+                , "360px"
+               , "10.1.0"
+                , "expressInstall.swf"
+                , parameters
+                , {
+                    allowFullScreen: "true",
+                    wmode: wmodeValue
+                }
+                , {
+                    name: "GrindPlayer"
+                }
+            );
+        </script>		
+		
   
 
 </body>
