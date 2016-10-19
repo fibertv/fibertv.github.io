@@ -1,0 +1,116 @@
+<script src="player/libs/swfobject.js" type="text/javascript">// <![CDATA[
+
+// ]]></script>
+<script src="player/ParsedQueryString.js" type="text/javascript">// <![CDATA[
+
+// ]]></script>
+<script src="treams.js" type="text/javascript">// <![CDATA[
+
+// ]]></script>
+<script type="text/javascript">// <![CDATA[
+var player = null;
+
+function loadStream(url) {
+  player.setMediaResourceURL(url);
+}
+
+function getlink(url) {
+  return "GrindPlayer.html?src=" + encodeURIComponent(url);
+}
+
+function listStreams(list, container) {
+  for(var i=0; i<list.length; i++) { var entry = document.createElement("li");
+    //entry.innerHTML = "<a href=" + getlink(list[i].file) + ">" +list[i].title+"</a>";
+    entry.innerHTML = "<a href='#' onclick='return loadStream(\""+list[i].file+"\")'>"+list[i].title+"</a>";    
+    document.getElementById(container).appendChild(entry);
+  }
+  //loadStream(list[0].file);
+}
+
+
+        function jsbridge(playerId, event, data) {
+          if (player == null) {
+            player = document.getElementById(playerId);
+          }
+          switch(event) {
+            case "onJavaScriptBridgeCreated":
+              listStreams(teststreams,"streamlist");
+              break;
+             case "timeChange":
+             case "timeupdate":
+             case "progress":
+               break;
+             default:
+              console.log(event, data);
+            }
+        }
+
+            // Collect query parameters in an object that we can
+            // forward to SWFObject:
+            
+            var pqs = new ParsedQueryString();
+            var parameterNames = pqs.params(false);
+            var parameters = {
+                src: "http://216.31.255.235/hlsl/8/INVDSC/INVDSC.m3u8",
+                //src: "http://localhost:8082/playlists/test_001/stream.m3u8",
+                autoPlay: "false",
+                verbose: true,
+                controlBarAutoHide: "true",
+                controlBarPosition: "bottom",
+                poster: "images/poster.png",
+                javascriptCallbackFunction: "jsbridge",
+                plugin_hls: "player/flashlsOSMF.swf",
+                hls_minbufferlength: -1,
+                hls_maxbufferlength: 30,
+                hls_lowbufferlength: 3,
+                hls_seekmode: "SEGMENT",
+                hls_startfromlevel: -1,
+                hls_seekfromlevel: -1,
+                hls_live_flushurlcache: false,
+                hls_info: true,
+                hls_debug: false,
+                hls_debug2: false,
+                hls_warn: true,
+                hls_error: true,
+                hls_fragmentloadmaxretry : -1,
+                hls_manifestloadmaxretry : -1,
+                hls_capleveltostage : false,
+                hls_maxlevelcappingmode : "downscale"
+            };
+            
+            for (var i = 0; i < parameterNames.length; i++) {
+                var parameterName = parameterNames[i];
+                parameters[parameterName] = pqs.param(parameterName) ||
+                parameters[parameterName];
+            }
+            
+            var wmodeValue = "direct";
+            var wmodeOptions = ["direct", "opaque", "transparent", "window"];
+            if (parameters.hasOwnProperty("wmode"))
+            {
+                if (wmodeOptions.indexOf(parameters.wmode) >= 0)
+                {
+                    wmodeValue = parameters.wmode;
+                }                   
+                delete parameters.wmode;
+            }
+            
+            // Embed the player SWF:                
+            swfobject.embedSWF(
+                "player/GrindPlayer.swf"
+                , "GrindPlayer"
+                , "100%"
+                , "100%"
+               , "10.1.0"
+                , "expressInstall.swf"
+                , parameters
+                , {
+                    allowFullScreen: "true",
+                    wmode: wmodeValue
+                }
+                , {
+                    name: "GrindPlayer"
+                }
+            );
+// ]]></script>
+<div id="GrindPlayer" style="width: 100%; height: 100%;"></div>
