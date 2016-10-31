@@ -1,149 +1,38 @@
+<html>
+<head>
+<meta charset="UTF-8">
+ <link href="http://vjs.zencdn.net/5.10.8/video-js.css" rel="stylesheet">
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fiber</title>
-    <!-- CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-	<style>
-		html { 
-		 background-color: #14171a;
-		  -webkit-background-size: cover;
-		  -moz-background-size: cover;
-		  -o-background-size: cover;
-		  background-size: cover;
-		}
-		body { background-color: transparent; color:white;}
-		#player {display:none;}
-		.video-js .vjs-big-play-button { display: none !important; }
-		.btn-primary {
-		color: #fff;
-		background-color: #1E87E7;
-		margin: 30px 0 0;
-		-webkit-border-radius: 15px;
-		-moz-border-radius: 15px;
-		border-radius: 15px;
-		}
-	</style>
-      <!-- Peer5 library -->
-<script src="//api.peer5.com/peer5.js?id=rl7fkzxfbzx302j8nr61"></script>
-<!-- Peer5 plugin for Clappr -->
-<script src="//api.peer5.com/peer5.clappr.plugin.js"></script>
-<!-- clappr script -->
-<script src="//cdn.clappr.io/latest/clappr.js"></script>
-  </head>
+ <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+<style>
+body, html{
+width: 100% ;
+height: 100% ;
+margin: 0px ;
+padding:0;
+overflow:hidden;}
+.video-js {
+    width: 100%;
+    height: 100%;
+}
+</style>
+</head>
 <body>
+    <div style="width: 100% ;
+height: 100% ;"  id="videojsplayer">
+  <video id="my-video" autoplay class="video-js" controls preload="auto" width="auto" height="auto"
+  poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+    <source src="http://abclive.abcnews.com/i/abc_live4@136330/master.m3u8?b=500,300,700,900,1200" type='application/x-mpegURL'>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+                      
+                    </div>
+  <script src="http://vjs.zencdn.net/5.10.8/video.js"></script>
 
-
-<div class="container">
-	<div class="row" style="padding:5px 0 30px;">
-		<div class="col-md-2"></div>
-			<div class="col-md-8">
-			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- Responsive Links -->
-			<ins class="adsbygoogle"
-				 style="display:block"
-				 data-ad-client="ca-pub-2784733819365729"
-				 data-ad-slot="7858898295"
-				 data-ad-format="link"></ins>
-			<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- 720x90 Header -->
-				<ins class="adsbygoogle"
-				style="display:block"
-				data-ad-client="ca-pub-2784733819365729"
-				data-ad-slot="5549324291"
-				data-ad-format="auto"></ins>
-				<script>
-				(adsbygoogle = window.adsbygoogle || []).push({});
-				</script>
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-			<!-- Responsive Links -->
-			<ins class="adsbygoogle"
-				 style="display:block"
-				 data-ad-client="ca-pub-2784733819365729"
-				 data-ad-slot="7858898295"
-				 data-ad-format="link"></ins>
-			<script>
-			(adsbygoogle = window.adsbygoogle || []).push({});
-			</script>
-			</div>
-		<div class="col-md-2"></div>
-	</div>
-</div>
-
-<center style="padding: 0 0 20px 0;">
-   
-  </center><div class="container">
-<center>
-  <div class="row">
-    <div class="col-md-1"></div>
-    
-    <div class="col-md-10">
-            <p>More the users, Better the service. To learn more about the project, Please go to <a href="http://fiber.media/">http://fiber.media</a> thanks:)</p>
-
-    	  <div id="player">
-        <script>
-            var player = new Clappr.Player({
-                source: 'http://abclive.abcnews.com/i/abc_live4@136330/master.m3u8?b=500,300,700,900,1200',
-                autoPlay: true,
-                width: "100%",
-                height: "100%"
-                parentId: '#player'
-            });
-        </script>
-        
-    </div>
-  
-    <div class="col-md-1"></div>
-  </div>
- <a class="btn btn-primary" href="/" role="button">BACK HOME</a>
-</center>
-
- 
-</div>
-<!-- JavaScript
-    ================================================== -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-	
-	<script>
-		$(document).ready(function() {
-		   setTimeout(function(){
-			   $("#player").show();
-		   }, 10000);
-		});
-	</script>
-
-    	<script>
-		$(document).ready(function() {
-		   setTimeout(function(){
-			   $("#player").show();
-		   }, 10000);
-		});
-	</script>
-	<div style="float:right; position:fixed;
-   top:0; right:0;">	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=FMKH4EXUGU87U&lc=US&item_name=Donae&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted">
-<img style="width:50px;height:50px;" src="http://simplsystems.com/lisasarmy/wp-content/uploads/2014/05/donate-icon.png">
-
-   </div>
-
-  
+               
 
 </body>
 </html>
