@@ -11,10 +11,12 @@
 
 <!-- Peer5 library -->
 <script src="//api.peer5.com/peer5.js?id=mm2nnysnqar23qma7ljz"></script>
-<!-- Peer5 plugin for Clappr -->
-<script src="//api.peer5.com/peer5.clappr.plugin.js"></script>
-<!-- clappr script -->
-<script src="/player/clappr.js"></script>
+<!-- Peer5 plugin for VideoJS -->
+<script src="//api.peer5.com/peer5.videojs5.plugin.js"></script>
+<!-- VideoJS script -->
+<link href="http://vjs.zencdn.net/5.11.9/video-js.css" rel="stylesheet">
+<script src="/player/video.js"></script>
+
 <style>
 body, html{
 width: 100% ;
@@ -26,16 +28,25 @@ overflow:hidden;}
     width: 100%;
     height: 100%;
 }
+.vjs-big-play-centered .vjs-big-play-button {
+   background-color: red;
+}
+   .video-js:hover .vjs-big-play-button, .video-js .vjs-big-play-button:focus {
+   background-color: green;
+}
 </style>
 </head>
-<body>
 
-    	  <div id="ch11" style="width: 100% ;
-height: 100% ;">
+  
+  <video  class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="100%" height="100%" 
+  data-setup='{}'>
 
-                    </div>
+    	  <source id="ch11" src="" type="application/x-mpegURL">
+</video>
 
-<script src="/fiberplayer.js"></script>    
+                   
+
+<script src="/fiber.js"></script>    
                
 
 </body>
