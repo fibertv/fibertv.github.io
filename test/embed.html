@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta charset="utf-8">
+  <title>Fiber</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://image.prntscr.com/image/c6955a69cd384567ac42021618868c23.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://image.prntscr.com/image/c6955a69cd384567ac42021618868c23.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://image.prntscr.com/image/c6955a69cd384567ac42021618868c23.png">
+                  <link rel="apple-touch-icon-precomposed" href="http://image.prntscr.com/image/c6955a69cd384567ac42021618868c23.png">
+                                 <link rel="shortcut icon" href="http://image.prntscr.com/image/c6955a69cd384567ac42021618868c23.png">
+
+<!-- Peer5 library -->
+<script src="//api.peer5.com/peer5.js?id=rl7fkzxfbzx302j8nr61"></script>
+<!-- Peer5 plugin for VideoJS -->
+<script src="//api.peer5.com/peer5.videojs5.plugin.js"></script>
+<!-- VideoJS script -->
+<link href="http://vjs.zencdn.net/5.11.9/video-js.css" rel="stylesheet">
+<script src="http://vjs.zencdn.net/5.11.9/video.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/3.0.2/videojs-contrib-hls.js"></script>
+<!-- Preroll library -->
+<script src="/player/ads.js"></script>
+
+
+<style>
+body, html{
+width: 100% ;
+height: 100% ;
+margin: 0px ;
+padding:0;
+overflow:hidden;}
+.video-js {
+    width: 100%;
+    height: 100%;
+}
+.vjs-big-play-centered .vjs-big-play-button {
+   background-color: red;
+}
+   .video-js:hover .vjs-big-play-button, .video-js .vjs-big-play-button:focus {
+   background-color: green;
+}
+#preroll{
+  position:absolute;
+  border:solid 1px #000;
+  width:100%;
+  height:100%;
+  left:0px;
+  top:0px;
+  background:white;
+  box-shadow:0 0 10px #666;  
+}
+</style>
+</head>
+
+  
+  <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="100%" height="100%" 
+  poster="https://s22.postimg.org/5unraipxt/fiber_003.jpg" data-setup='{}'>
+
+    	  <source  src="http://abclive.abcnews.com/i/abc_live4@136330/master.m3u8?b=500,300,700,900,1200" type="application/x-mpegURL">
+</video>
+
+<div id="preroll"><embed src="/ads" style="margin: 0;border: 0; width: 100%; height: 100%"></embed></div>
+
+                   
+
+               
+
+</body>
+</html>
