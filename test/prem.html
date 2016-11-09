@@ -1,0 +1,22 @@
+ <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Clappr Player test</title>
+        <!-- peer5 client & plugin -->
+        <script src="//api.peer5.com/peer5.js?id=PEER5_API_KEY"></script>
+        <script src="//api.peer5.com/peer5.clappr.plugin.js"></script>
+
+        <!-- clappr script -->
+        <script src="//cdn.clappr.io/latest/clappr.js"></script>
+    </head>
+    <body>
+        <div id="player"></div>
+        <script>
+            var player = new Clappr.Player({
+                source: 'http://vaders.tv/live/bane/ccloud/2889.m3u8',
+                parentId: '#player'
+            });
+        </script>
+    </body>
+    </html>
