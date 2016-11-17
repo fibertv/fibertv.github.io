@@ -1,0 +1,34 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <script type="text/javascript" charset="utf-8" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="https://cdn.jsdelivr.net/clappr.chromecast-plugin/latest/clappr-chromecast-plugin.min.js"></script>
+  <title>FiberCAST</title>
+  <script type="text/javascript" charset="utf-8">
+Clappr.Log.setLevel(0)
+window.onload = function() {
+  var player = new Clappr.Player({
+    source: 'http://abclive.abcnews.com/i/abc_live4@136330/master.m3u8?b=500,300,700,900,1200',
+    parentId: '#player-wrapper',
+    width: 640, height: 360,
+    plugins: [ChromecastPlugin],
+    chromecast: {
+      appId: 'FiberTV',
+      media: {
+        title: 'FiberTV',
+        subtitle: 'Casting:)'
+      }
+    }
+  });
+}
+  </script>
+</head>
+<body>
+  <div align="center">
+    <div id="player-wrapper">
+  </div>
+  </div>
+</body>
+</html>
